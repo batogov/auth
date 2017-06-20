@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
+var multer = require('multer');
+
+var upload = multer(); 
 
 const app = express();
 
@@ -11,7 +14,8 @@ app.set('view engine', 'handlebars');
 app.use(express.static('public'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(upload.array());
 app.use(cookieParser());
 
 app.get('/signup', function (req, res) {
@@ -21,5 +25,7 @@ app.get('/signup', function (req, res) {
 app.get('/signin', function (req, res) {
     res.render('signin')
 });
+
+app.post('/signup', require('./controllers/signupController'));
 
 app.listen(3000);
