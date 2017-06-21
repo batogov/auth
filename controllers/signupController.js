@@ -33,7 +33,8 @@ const signupController = function(req, res) {
         }
 
         if (data.password !== data.confirmPassword) {
-            errors.password = 'Password does not match the confirm password';
+            errors.password = true;
+            errors.confirmPassword = 'Password does not match the confirm password';
         }
 
         return {
