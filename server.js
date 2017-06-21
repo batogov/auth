@@ -27,5 +27,6 @@ app.get('/signin', function (req, res) {
 });
 
 app.post('/signup', require('./controllers/signupController'));
+app.post('/signin', require('./controllers/signinController'));
 
 app.listen(3000);

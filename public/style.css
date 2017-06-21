@@ -4,7 +4,7 @@ body {
     background-color: #eee;
 }
 
-.form-signin {
+.form {
     max-width: 330px;
     margin: 0 auto;
 }
@@ -17,17 +17,17 @@ body {
     margin-top: 5px;
 }
 
-.form-signin-heading {
+.form-heading {
     margin-bottom: 0;
 
     text-align: center;
 }
 
-.form-signin .checkbox {
+.form .checkbox {
     font-weight: normal;
 }
 
-.form-signin .form-control {
+.form .form-control {
     position: relative;
     height: auto;
     -webkit-box-sizing: border-box;
@@ -44,4 +44,8 @@ fieldset {
 
 label {
     margin-bottom: 0;    
+}
+
+.alert {
+    margin-bottom: 10px;
 }

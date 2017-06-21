@@ -1,16 +1,22 @@
 <div class="container">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Sign in</h2>
+    <form class="form" id="signin-form">
+        <h2 class="form-heading">Sign in</h2>
         <fieldset>
+            {{!--<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                Incorrect username or password
+            </div>--}}
 
             <div class="form-group">
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <label for="username" class="sr-only">Username</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
             </div>
 
             <div class="form-group">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
             </div>
 
             <label>
@@ -21,3 +27,5 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 </div>
+
+<script src="signin.js"></script>

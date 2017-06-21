@@ -1,17 +1,6 @@
 const User = require('../models/user');
+const generateSalt = require('../lib/generateSalt');
 const md5 = require('md5');
-const Sync = require('sync');
-
-function generateSalt() {
-    let salt = '';
-    let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-    for (let i = 0; i < 10; i++) {
-        salt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-
-    return salt;
-}
 
 function validateInput(data) {
     let errors = {};
@@ -64,7 +53,7 @@ const signupController = function(req, res) {
         if (Object.keys(errors).length !== 0) {
             res.status(403).json(errors);
         } else {
-            const salt = generateSalt()
+            const salt = generateSalt();
             const hashedPassword = md5(md5(req.body.password) + salt);
 
             const userData = {
