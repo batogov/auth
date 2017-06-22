@@ -17,6 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(upload.array());
 app.use(cookieParser());
+app.use(require('./middleware/checkSessionId'));
 
 app.get('/signup', function (req, res) {
     res.render('signup')

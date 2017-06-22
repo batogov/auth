@@ -61,7 +61,7 @@ const signupController = function(req, res) {
                 email: req.body.email,
                 password: hashedPassword,
                 salt: salt
-            }
+            };
 
             User.create(userData).then(user => {
                 res.status(200).end();
