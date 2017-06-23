@@ -9,7 +9,7 @@ body {
     margin: 0 auto;
 }
 
-.form-group {
+.form-group, .alert {
     margin-bottom: 10px;
 }
 
@@ -42,10 +42,28 @@ fieldset {
     padding: 0;
 }
 
-label {
+label, .promo p {
     margin-bottom: 0;    
 }
 
-.alert {
-    margin-bottom: 10px;
+.promo {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+.cats {
+    padding-top: 30px;
+}
+
+.cats img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .col-md-4:not(:last-child) {
+        padding-bottom: 15px;
+    }
 }

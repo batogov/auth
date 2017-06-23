@@ -19,12 +19,17 @@ app.use(upload.array());
 app.use(cookieParser());
 app.use(require('./middleware/checkSessionId'));
 
-app.get('/signup', function (req, res) {
-    res.render('signup')
+app.get('/', function(req, res) {
+    console.log(req.isLoggedin);
+    res.render('index');
 });
 
-app.get('/signin', function (req, res) {
-    res.render('signin')
+app.get('/signup', function (req, res) { 
+    res.render('signup');
+});
+
+app.get('/signin', function (req, res) { 
+    res.render('signin');
 });
 
 app.post('/signup', require('./controllers/signupController'));
