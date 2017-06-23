@@ -25,6 +25,8 @@
 
             if (xhr.status != 200) {
                 showAlert();
+            } else {
+                window.location.replace('/');
             }
         }
     });

@@ -20,8 +20,14 @@ app.use(cookieParser());
 app.use(require('./middleware/checkSessionId'));
 
 app.get('/', function(req, res) {
-    console.log(req.isLoggedin);
-    res.render('index');
+    if (req.isLoggedin) {
+        res.render('index', {
+            isLoggedin: true,
+            user: req.user
+        });
+    } else {
+        res.render('index', { isLoggedin: false });
+    }
 });
 
 app.get('/signup', function (req, res) { 
@@ -34,5 +40,6 @@ app.get('/signin', function (req, res) {
 
 app.post('/signup', require('./controllers/signupController'));
 app.post('/signin', require('./controllers/signinController'));
+app.post('/signout', require('./controllers/signoutController'));
 
 app.listen(3000);

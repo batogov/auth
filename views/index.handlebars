@@ -3,18 +3,31 @@
     <div class="row promo">
         <div class="col-md-12">
             <h1>Cats are awesome! 🐯</h1>
-            <p class="lead">
-                You must sign in to see awesome cat pictures!<br>
-                <a href="/signin" class="btn btn-primary btn-sm">Sign in</a>
-                <a href="/signup" class="btn btn-secondary btn-sm">Sign up</a>
-            </p>
+            {{#if isLoggedin}}
+                <p class="lead">
+                    Hello, {{user.username}}! Enjoy awesome cat pictures!<br>
+                    <a id="signout" href="#" class="btn btn-secondary btn-sm">Sign out</a>
+                </p>
+            {{else}}
+                <p class="lead">
+                    You must sign in to see awesome cat pictures!<br>
+                    <a href="/signin" class="btn btn-primary btn-sm">Sign in</a>
+                    <a href="/signup" class="btn btn-secondary btn-sm">Sign up</a>
+                </p>
+            {{/if}}
         </div>
     </div>
 
-    <div class="row cats">
-        <div class="col-md-4"><img src="/img/1.jpg" class="rounded" alt=""></div>
-        <div class="col-md-4"><img src="/img/2.jpg" class="rounded" alt=""></div>
-        <div class="col-md-4"><img src="/img/3.jpg" class="rounded" alt=""></div>
-    </div>
+    {{#if isLoggedin}}
+        <div class="row cats">
+            <div class="col-md-4"><img src="/img/1.jpg" class="rounded" alt=""></div>
+            <div class="col-md-4"><img src="/img/2.jpg" class="rounded" alt=""></div>
+            <div class="col-md-4"><img src="/img/3.jpg" class="rounded" alt=""></div>
+        </div>
+    {{/if}}
 
 </div>
+
+{{#if isLoggedin}}
+    <script src="js/index.js"></script>
+{{/if}}

@@ -24,9 +24,8 @@ const signinController = function(req, res) {
                 };
 
                 Session.create(sessionData).then(user => {
-                    res.status(200);
                     res.cookie('sessionId', sessionId, { maxAge: 900000, httpOnly: true });
-                    res.end();
+                    res.status(200).end();
                 });
             } 
         }

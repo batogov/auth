@@ -68,9 +68,11 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState != 4) return;
 
-            if (xhr.status != 200) {
+            if (xhr.status !== 200) {
                 hideDangers(allInputs);
                 showDangers(JSON.parse(xhr.responseText));
+            } else {
+                window.location.replace('/');
             }
         }
     });
