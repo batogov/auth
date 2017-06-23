@@ -2,10 +2,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const exphbs = require('express-handlebars');
-var multer = require('multer');
+const multer = require('multer');
 
-var upload = multer(); 
+const port = process.env.PORT || 8080;
 
+const upload = multer();
 const app = express();
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -42,4 +43,4 @@ app.post('/signup', require('./controllers/signupController'));
 app.post('/signin', require('./controllers/signinController'));
 app.post('/signout', require('./controllers/signoutController'));
 
-app.listen(3000);
+app.listen(port);
